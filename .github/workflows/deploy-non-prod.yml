@@ -16,7 +16,6 @@ jobs:
         with:
           aws-region: us-east-2
           role-to-assume: arn:aws:iam::467222377375:role/github-actions
-          session-name: github-actions
 
       - name: Checkout
         uses: actions/checkout@v2
