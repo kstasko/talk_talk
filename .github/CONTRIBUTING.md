@@ -9,10 +9,9 @@ and then checkouts the branch.*
 
 ### GENERAL
 #### LOCAL DEPLOYMENT
-*prerequisite* : cli access to an AWS account
-```bash
+*prerequisite : CLI access to an aws account*
 
-```bash 
+```bash
 cd infra && \
 terraform fmt && \
 terraform init && \
