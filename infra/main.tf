@@ -10,7 +10,7 @@ terraform {
 }
 
 provider "aws" {
-  assume_role_with_web_identity {
+  assume_role {
     role_arn = "arn:aws:iam::467222377375:role/github-action"
   }
   region = "us-east-2"
