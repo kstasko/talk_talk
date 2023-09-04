@@ -2,9 +2,14 @@
   "name": "talk_talk",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "workspaces": ["infra"],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "init": "npm run --workspaces init",
+    "validate": "npm run --workspaces validate & yamllint ./.github/**/*.yml",
+    "build": "npm run --workspaces build"
+  },
+  "devDependencies": {
+    "yaml-lint": "1.7.0"
   },
   "author": "kstasko",
   "license": "ISC"
