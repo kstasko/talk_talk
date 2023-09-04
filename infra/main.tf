@@ -11,7 +11,7 @@ terraform {
 
 provider "aws" {
   assume_role_with_web_identity {
-    role_arn = "arn:aws:iam::467222377375:role/terraform-readonly"
+    role_arn = "arn:aws:iam::467222377375:role/github-action"
   }
   region = "us-east-2"
 }
