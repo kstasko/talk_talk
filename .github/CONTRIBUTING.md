@@ -8,7 +8,7 @@ and then checkouts the branch.*
 
 --- 
 
-#### LOCAL DEPLOYMENT
+### LOCAL DEPLOYMENT
 *prerequisite : CLI access to an aws account*
 
 ```bash
