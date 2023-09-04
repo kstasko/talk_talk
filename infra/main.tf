@@ -9,14 +9,11 @@ terraform {
   required_version = ">= 1.2.0"
 }
 
-data "aws_caller_identity" "current" {}
-
 provider "aws" {
   region = "us-east-2"
-  assume_role_with_web_identity {
-    role_arn = data.aws_caller_identity.current.arn
-  }
 }
+
+data "aws_caller_identity" "current" {}
 
 resource "aws_s3_bucket" "talk-talk-s3-bucket" {
   bucket = "talk-talk-${data.aws_caller_identity.current.account_id}"
