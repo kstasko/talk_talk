@@ -11,9 +11,6 @@ terraform {
 
 provider "aws" {
   region = "us-east-2"
-  assume_role {
-    role_arn = "arn:aws:iam::467222377375:role/github-actions"
-  }
 }
 
 data "aws_caller_identity" "current" {}
