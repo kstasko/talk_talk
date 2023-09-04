@@ -11,11 +11,13 @@ terraform {
 
 provider "aws" {
   region = "us-east-2"
+  access_key = "<access-key>"
+  secret_key = "<secret-key>"
 }
 
 data "aws_caller_identity" "current" {}
 
-resource "aws_s3_bucket" "talk-talk-accountName" {
+resource "aws_s3_bucket" "talk-talk-s3-bucket" {
   bucket = "talk-talk-${data.aws_caller_identity.current.account_id}"
 
   tags = {
