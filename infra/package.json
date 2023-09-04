@@ -1,0 +1,15 @@
+{
+  "name": "talk_talk_infra",
+  "version": "1.0.0",
+  "description": "Infrastructure for talk_talk (Terraform/AWS)",
+  "scripts": {
+    "init": "path-exists ./.terraform && echo Terraform already initialized! || (echo Initializing Terraform && terraform init)",
+    "validate": "terraform validate",
+    "build": "terraform plan"
+  },
+  "devDependencies": {
+    "path-exists-cli": "2.0.0"
+  },
+  "author": "kstasko",
+  "license": "ISC"
+}
