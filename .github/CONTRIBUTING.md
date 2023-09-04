@@ -8,7 +8,6 @@ and then checkouts the branch.*
 
 --- 
 
-### GENERAL
 #### LOCAL DEPLOYMENT
 *prerequisite : CLI access to an aws account*
 
