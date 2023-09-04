@@ -14,12 +14,13 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment }}
     steps:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-region: us-east-2
-          role-to-assume: ${{ inputs.environment.AWS_DEPLOYMENT_ROLE_TO_ASSUME_ARN }}
+          role-to-assume: ${{ env.AWS_DEPLOYMENT_ROLE_TO_ASSUME_ARN }}
 
       - name: Checkout
         uses: actions/checkout@v2
