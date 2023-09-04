@@ -2,6 +2,12 @@ name: Deploy Non-Prod
 
 on:
   workflow_dispatch:
+    inputs:
+      environment:
+        description: 'environment to deploy to'
+        required: true
+        default: 'nonprod'
+        type: environment
 
 permissions:
   id-token: write
