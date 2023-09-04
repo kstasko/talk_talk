@@ -16,6 +16,7 @@ jobs:
         with:
           aws-region: us-east-2
           role-to-assume: arn:aws:iam::467222377375:role/github-actions
+          session-name: github-actions
 
       - name: Checkout
         uses: actions/checkout@v2
@@ -45,9 +46,4 @@ jobs:
       - name: Terraform Apply
         working-directory: infra
         if: github.ref == 'refs/heads/main'
-        run: terraform apply -input=false tfplan
-
-      - name: Terraform Apply
-        working-directory: infra
-        if: github.ref == 'refs/heads/develop'
         run: terraform apply -input=false tfplan
