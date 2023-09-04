@@ -1,2 +1,4 @@
 .terraform/*
 .idea/*
+
+infra/.terraform.lock.hcl
