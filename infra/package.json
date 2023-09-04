@@ -5,7 +5,7 @@
   "scripts": {
     "init": "path-exists ./.terraform && echo Terraform already initialized! || (echo Initializing Terraform && terraform init)",
     "validate": "terraform validate",
-    "build": "terraform plan"
+    "build": "terraform plan -out=tfplan"
   },
   "devDependencies": {
     "path-exists-cli": "2.0.0"
