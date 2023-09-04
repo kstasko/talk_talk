@@ -14,7 +14,7 @@ data "aws_caller_identity" "current" {}
 provider "aws" {
   region = "us-east-2"
   assume_role_with_web_identity {
-    role_arn = "${data.aws_caller_identity.current.arn}"
+    role_arn = data.aws_caller_identity.current.arn
   }
 }
 
