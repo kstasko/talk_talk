@@ -59,6 +59,7 @@ resource "aws_route53_zone" "talk-talk-route53-zone" {
   name = var.domain_name
 }
 
+
 resource "aws_s3_bucket" "talk-talk-s3_bucket" {
   bucket = "talk-talk-${var.deploy_environment}"
 }
