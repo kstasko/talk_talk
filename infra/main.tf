@@ -27,6 +27,10 @@ variable "deploy_environment" {
   type        = string
 }
 
+variable "domain_name" {
+  description = "Domain Name to Deploy to (e.g. 'talk-talk.dev')"
+  type        = string
+}
 
 terraform {
   required_providers {
@@ -44,14 +48,17 @@ provider "aws" {
     role_arn = var.aws_role_arn
   }
   region = var.aws_region
+  default_tags {
+    tags = {
+      Environment = var.deploy_environment
+    }
+  }
 }
 
-resource "aws_s3_bucket" "talk-talk-s3-bucket" {
+resource "aws_route53_zone" "talk-talk-route53-zone" {
+  name = var.domain_name
+}
+
+resource "aws_s3_bucket" "talk-talk-s3_bucket" {
   bucket = "talk-talk-${var.deploy_environment}"
-
-
-  tags = {
-    Name        = "talk-talk-${var.deploy_environment}"
-    Environment = var.deploy_environment
-  }
 }
