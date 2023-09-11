@@ -42,7 +42,7 @@ jobs:
         id: plan
         run: |
           terraform plan \
-          -out=tfplan \ 
+          -out=tfplan\ 
           -var aws_region=us-east-2 \
           -var aws_role_arn=arn:aws:iam::467222377375:role/terraform-readonly \
           -var deploy_environment=nonprod \

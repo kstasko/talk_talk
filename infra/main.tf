@@ -21,12 +21,12 @@ provider "aws" {
   }
 }
 
-module "createBaseDomain" {
-  source = "./modules/createDomain"
+module "create_base_domain" {
+  source = "./modules/create_domain"
 
   domain_name = "talktalk.dev"
 }
 
-resource "aws_s3_bucket" "talk-talk-s3_bucket" {
+resource "aws_s3_bucket" "talk_talk_s3_bucket" {
   bucket = "talk-talk-${var.deploy_environment}"
 }
