@@ -24,7 +24,7 @@ provider "aws" {
 module "createBaseDomain" {
   source = "./modules/createDomain"
 
-  domain_name        = 'talktalk.dev'
+  domain_name = "talktalk.dev"
 }
 
 resource "aws_s3_bucket" "talk-talk-s3_bucket" {
