@@ -40,8 +40,7 @@ jobs:
       - name: Terraform Plan
         working-directory: infra
         id: plan
-        run: |
-          terraform plan -out="tfplan" -var-file="nonprod.tfvars"
+        run: terraform plan -out="tfplan" -var-file="nonprod.tfvars"
 
       - name: Terraform Apply
         working-directory: infra
