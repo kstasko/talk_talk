@@ -8,11 +8,6 @@ variable "aws_region" {
   }
 }
 
-variable "aws_account" {
-  description = "AWS Workflow Account ID"
-  type        = number
-}
-
 variable "aws_role_arn" {
   description = "AWS Role Arn"
   type        = string
