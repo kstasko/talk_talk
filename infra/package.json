@@ -4,6 +4,7 @@
   "description": "Infrastructure for talk_talk (Terraform/AWS)",
   "scripts": {
     "init": "path-exists ./.terraform && echo Terraform already initialized! || (echo Initializing Terraform && terraform init)",
+    "fmt": "terraform fmt -recursive",
     "validate": "terraform validate",
     "build": "terraform plan -out=tfplan"
   },
