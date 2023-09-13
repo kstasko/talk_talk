@@ -8,6 +8,18 @@ terraform {
   required_version = ">= 1.2.0"
 }
 
-resource "aws_route53_zone" "talk-talk-route53-zone" {
+resource "aws_route53_zone" "main" {
+  name = "talktalk.dev"
+}
+
+resource "aws_route53_zone" "stage-hosted-zone" {
   name = var.domain_name
+}
+
+resource "aws_route53_record" "stage-ns-record" {
+  zone_id = aws_route53_zone.main.zone_id
+  name    = "${var.domain_name}.example.com"
+  type    = "NS"
+  ttl     = "30"
+  records = aws_route53_zone.stage-hosted-zone.name_servers
 }
