@@ -18,7 +18,7 @@ resource "aws_route53_zone" "stage-hosted-zone" {
 
 resource "aws_route53_record" "stage-ns-record" {
   zone_id = data.aws_route53_zone.main.zone_id
-  name    = "${var.domain_name}.example.com"
+  name    = "${var.domain_name}"
   type    = "NS"
   ttl     = "30"
   records = aws_route53_zone.stage-hosted-zone.name_servers
