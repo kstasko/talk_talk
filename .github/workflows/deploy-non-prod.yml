@@ -9,9 +9,7 @@ permissions:
 
 jobs:
   deploy-non-prod:
-    environment:
-      name: NON-PROD
-      url: https://talk-talk.non-prod.dev
+    environment: NON-PROD
     runs-on: ubuntu-latest
     steps:
       - name: Configure AWS Credentials
