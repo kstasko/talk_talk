@@ -2,7 +2,7 @@
 
 ## CONTRIBUTING
 
-### Project Setup
+### PROJECT SETUP
 
 **Dependencies**
 
