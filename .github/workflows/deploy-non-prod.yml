@@ -10,7 +10,7 @@ permissions:
 jobs:
   deploy-non-prod:
     environment:
-      name: non-prod
+      name: NON-PROD
       url: https://talk-talk.non-prod.dev
     runs-on: ubuntu-latest
     steps:
