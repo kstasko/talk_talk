@@ -8,7 +8,7 @@ terraform {
   required_version = ">= 1.2.0"
 }
 
-resource "aws_route53_zone" "main" {
+data "aws_route53_zone" "main" {
   name = "talktalk.dev"
 }
 
