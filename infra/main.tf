@@ -26,12 +26,10 @@ provider "aws" {
   }
 }
 
-# Look into this later ..
-# https://github.com/kstasko/talk_talk/actions/runs/6140824849/job/16660295312
-module "create_base_domain" {
+module "create_subdomain" {
   source = "./modules/create_domain"
 
-  domain_name = "talktalk.dev"
+  domain_name = "${var.deploy_environment}.talktalk.dev"
 }
 
 resource "aws_s3_bucket" "talk_talk_s3_bucket" {
