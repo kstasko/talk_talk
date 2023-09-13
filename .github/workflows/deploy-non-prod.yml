@@ -8,14 +8,17 @@ permissions:
   contents: read
 
 jobs:
-  deploy:
+  deploy-non-prod:
+    environment:
+      name: non-prod
+      url: https://talk-talk.non-prod.dev
     runs-on: ubuntu-latest
     steps:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-region: us-east-2
-          role-to-assume: arn:aws:iam::467222377375:role/github-actions
+          aws-region: ${{ env.AWS_REGION }}
+          role-to-assume: ${{ env.AWS_ROLE_TO_ASSUME }}
 
       - name: Checkout
         uses: actions/checkout@v2
