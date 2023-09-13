@@ -8,14 +8,15 @@ permissions:
   contents: read
 
 jobs:
-  deploy:
+  deploy-non-prod:
+    environment: NON-PROD
     runs-on: ubuntu-latest
     steps:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-region: us-east-2
-          role-to-assume: arn:aws:iam::467222377375:role/github-actions
+          aws-region: ${{ secrets.AWS_REGION }}
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
 
       - name: Checkout
         uses: actions/checkout@v2
