@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
     bucket = "talk-talk-terraform-state-storage"
-    key    = "${var.deploy_environment}/terraform.tfstate"
+    key    = "terraform.tfstate"
     region = "us-east-2"
   }
   required_providers {
