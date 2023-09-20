@@ -62,6 +62,5 @@ resource "aws_route53_record" "a_record" {
     zone_id                = module.create_cloudfront.cloudfront_hosted_zone_id
   }
   type    = "A"
-  records = [module.create_cloudfront.cloudfront_domain_name]
 }
 
