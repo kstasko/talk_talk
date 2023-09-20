@@ -15,4 +15,5 @@ resource "aws_s3_object" "object" {
   key      = each.value
   source   = "../app/build/${each.value}"
   etag     = filemd5("../app/build/${each.value}")
+  content_type = "text/html"
 }
