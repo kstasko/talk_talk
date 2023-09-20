@@ -13,7 +13,7 @@ resource "aws_s3_bucket" "talk_talk_s3_bucket" {
 }
 
 resource "aws_s3_object" "object" {
-  for_each = fileset("../app/build/", "*")
+  for_each = fileset("../app/build/", "**")
   bucket   = aws_s3_bucket.talk_talk_s3_bucket.id
   key      = each.value
   source   = "../app/build/${each.value}"
