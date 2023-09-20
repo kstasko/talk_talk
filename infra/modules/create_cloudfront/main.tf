@@ -8,9 +8,10 @@ terraform {
   required_version = ">= 1.2.0"
 }
 
+
 locals {
   s3_origin_id   = "${var.s3_bucket_id}-origin"
-  s3_domain_name = var.s3_bucket_id
+  s3_domain_name = "${var.s3_bucket_id}.s3-website.${var.region}.amazonaws.com"
 }
 
 resource "aws_cloudfront_distribution" "this" {

@@ -14,7 +14,7 @@ resource "aws_s3_bucket" "talk_talk_s3_bucket" {
 
 resource "aws_s3_bucket_acl" "this" {
   bucket = aws_s3_bucket.talk_talk_s3_bucket.id
-  acl    = "private"
+  acl    = "public-read"
 }
 
 resource "aws_s3_bucket_website_configuration" "this" {
