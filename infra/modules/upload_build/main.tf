@@ -17,5 +17,5 @@ resource "aws_s3_object" "object" {
   bucket   = aws_s3_bucket.talk_talk_s3_bucket.id
   key      = each.value
   source   = "../app/build/${each.value}"
-  etag     = filemd5(each.value)
+  etag     = filemd5("../app/build/${each.value}"
 }
