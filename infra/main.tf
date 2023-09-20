@@ -32,4 +32,10 @@ module "create_subdomain" {
   domain_name = "${var.deploy_environment}.talktalk.dev"
 }
 
+module "upload_build" {
+  source = "./modules/upload_build"
+
+  deploy_environment = var.deploy_environment
+}
+
 
