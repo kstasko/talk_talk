@@ -12,7 +12,16 @@ resource "aws_s3_bucket" "talk_talk_s3_bucket" {
   bucket = "${var.deploy_environment}.talktalk.dev"
 }
 
+resource "aws_s3_bucket_ownership_controls" "this" {
+  bucket = aws_s3_bucket.talk_talk_s3_bucket.id
+  rule {
+    object_ownership = "BucketOwnerPreferred"
+  }
+}
+
 resource "aws_s3_bucket_acl" "this" {
+  depends_on = [aws_s3_bucket_ownership_controls.this]
+
   bucket = aws_s3_bucket.talk_talk_s3_bucket.id
   acl    = "public-read"
 }
