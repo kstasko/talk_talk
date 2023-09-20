@@ -56,8 +56,12 @@ module "create_cloudfront" {
 resource "aws_route53_record" "a_record" {
   zone_id = module.create_subdomain.hosted_zone_id
   name    = "${var.deploy_environment}.talktalk.dev"
+  alias {
+    evaluate_target_health = false
+    name                   = module.create_cloudfront.cloudfront_domain_name
+    zone_id                = module.create_cloudfront.cloudfront_hosted_zone_id
+  }
   type    = "A"
-  ttl     = "30"
   records = [module.create_cloudfront.cloudfront_domain_name]
 }
 
