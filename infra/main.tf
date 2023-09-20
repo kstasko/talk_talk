@@ -32,8 +32,15 @@ module "create_subdomain" {
   domain_name = "${var.deploy_environment}.talktalk.dev"
 }
 
+module "create_s3_bucket" {
+  source = "./modules/create_s3_bucket"
+
+  deploy_environment = var.deploy_environment
+}
+
 module "upload_build" {
   source = "./modules/upload_build"
 
   deploy_environment = var.deploy_environment
+  s3_bucket_id = module.create_s3_bucket.s3_bucket_id
 }

@@ -8,13 +8,10 @@ terraform {
   required_version = ">= 1.2.0"
 }
 
-resource "aws_s3_bucket" "talk_talk_s3_bucket" {
-  bucket = "${var.deploy_environment}.talktalk.dev"
-}
 
 resource "aws_s3_object" "object" {
   for_each = fileset("../app/build/", "**")
-  bucket   = aws_s3_bucket.talk_talk_s3_bucket.id
+  bucket   = var.s3_bucket_id
   key      = each.value
   source   = "../app/build/${each.value}"
   etag     = filemd5("../app/build/${each.value}")
