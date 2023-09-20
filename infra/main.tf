@@ -37,5 +37,3 @@ module "upload_build" {
 
   deploy_environment = var.deploy_environment
 }
-
-
