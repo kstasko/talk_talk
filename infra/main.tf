@@ -58,6 +58,6 @@ resource "aws_route53_record" "a_record" {
   name    = "${var.deploy_environment}.talktalk.dev"
   type    = "A"
   ttl     = "30"
-  records = module.create_cloudfront.cloudfront_domain_name
+  records = [module.create_cloudfront.cloudfront_domain_name]
 }
 
