@@ -62,3 +62,7 @@ resource "aws_cloudfront_distribution" "this" {
   price_class = "PriceClass_200"
 
 }
+
+output "cloudfront_domain_name" {
+  value = aws_cloudfront_distribution.this.domain_name
+}
