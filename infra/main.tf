@@ -32,6 +32,4 @@ module "create_subdomain" {
   domain_name = "${var.deploy_environment}.talktalk.dev"
 }
 
-resource "aws_s3_bucket" "talk_talk_s3_bucket" {
-  bucket = "talk-talk-${var.deploy_environment}"
-}
+

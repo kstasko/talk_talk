@@ -2,7 +2,9 @@
   "name": "talk_talk",
   "version": "1.0.0",
   "description": "",
-  "workspaces": ["infra"],
+  "workspaces": [
+    "infra"
+  ],
   "scripts": {
     "init": "npm run --workspaces init",
     "validate": "npm run --workspaces validate & yamllint ./.github/**/*.yml",

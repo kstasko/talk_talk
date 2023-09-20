@@ -21,6 +21,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Build
+        working-directory: app
+        run: |
+          npm install
+          npm run build
+
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
         with:
