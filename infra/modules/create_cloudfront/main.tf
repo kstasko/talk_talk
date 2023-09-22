@@ -59,7 +59,8 @@ resource "aws_cloudfront_distribution" "this" {
   }
 
   viewer_certificate {
-    acm_certificate_arn = var.acm_certificate_arn
+    cloudfront_default_certificate = true
+    acm_certificate_arn            = var.acm_certificate_arn
   }
 
   price_class = "PriceClass_200"
