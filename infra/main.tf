@@ -29,7 +29,7 @@ provider "aws" {
 module "create_subdomain" {
   source = "./modules/create_domain"
 
-  domain_name = "${var.deploy_environment}.talktalk.dev"
+  domain_name = var.deploy_environment
 }
 
 module "create_s3_bucket" {
