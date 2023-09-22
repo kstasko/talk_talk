@@ -49,6 +49,7 @@ module "create_cloudfront" {
   source = "./modules/create_cloudfront"
 
   acm_certificate_arn = var.acm_certificate_arn
+  deploy_environment = var.deploy_environment
   s3_bucket_id        = module.create_s3_bucket.s3_bucket_id
   region              = "us-east-2"
 }

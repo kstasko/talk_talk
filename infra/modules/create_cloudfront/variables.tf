@@ -3,6 +3,10 @@ variable "acm_certificate_arn" {
   type        = string
 }
 
+variable "deploy_environment" {
+  description = "Environment Name to Deploy to (e.g. 'Prod', 'Non-Prod')"
+  type        = string
+}
 variable "region" {
   description = "Environment Name to Deploy to (e.g. 'Prod', 'Non-Prod')"
   type        = string
