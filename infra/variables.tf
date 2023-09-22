@@ -1,3 +1,8 @@
+variable "acm_certificate_arn" {
+  description = "ACM Certificate ARN"
+  type        = string
+}
+
 variable "aws_region" {
   description = "AWS Region for Deployment (e.g. 'us-east-2')"
   type        = string

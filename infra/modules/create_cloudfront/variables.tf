@@ -1,3 +1,8 @@
+variable "acm_certificate_arn" {
+  description = "ACM Certificate ARN"
+  type        = string
+}
+
 variable "region" {
   description = "Environment Name to Deploy to (e.g. 'Prod', 'Non-Prod')"
   type        = string

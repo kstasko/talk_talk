@@ -18,6 +18,9 @@ resource "aws_cloudfront_distribution" "this" {
 
   enabled = true
 
+  aliases = ["*.${var.deploy_environment}.talktalk.dev"]
+
+
   origin {
     origin_id   = local.s3_origin_id
     domain_name = local.s3_domain_name
@@ -56,12 +59,14 @@ resource "aws_cloudfront_distribution" "this" {
   }
 
   viewer_certificate {
-    cloudfront_default_certificate = true
+    acm_certificate_arn = var.acm_certificate_arn
   }
 
   price_class = "PriceClass_200"
 
 }
+
+#create_certificate
 
 output "cloudfront_domain_name" {
   value = aws_cloudfront_distribution.this.domain_name

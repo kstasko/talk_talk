@@ -27,3 +27,4 @@ resource "aws_route53_record" "stage-ns-record" {
 output "hosted_zone_id" {
   value = aws_route53_zone.stage-hosted-zone.id
 }
+
