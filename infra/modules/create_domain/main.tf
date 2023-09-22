@@ -13,12 +13,12 @@ data "aws_route53_zone" "this" {
 }
 
 resource "aws_route53_zone" "stage-hosted-zone" {
-  name = var.domain_name
+  name = "${var.domain_name}.talktalk.dev"
 }
 
 resource "aws_route53_record" "stage-ns-record" {
   zone_id = data.aws_route53_zone.this.zone_id
-  name    = var.domain_name
+  name    = "${var.domain_name}.talktalk.dev"
   type    = "NS"
   ttl     = "30"
   records = aws_route53_zone.stage-hosted-zone.name_servers
