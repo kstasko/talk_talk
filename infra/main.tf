@@ -55,7 +55,7 @@ module "create_cloudfront" {
 
 resource "aws_route53_record" "a_record" {
   zone_id = module.create_subdomain.hosted_zone_id
-  name    = "${var.deploy_environment}"
+  name    = var.deploy_environment
   type    = "A"
   alias {
     evaluate_target_health = false
