@@ -29,9 +29,40 @@ provider "aws" {
 module "create_subdomain" {
   source = "./modules/create_domain"
 
-  domain_name = "${var.deploy_environment}.talktalk.dev"
+  domain_name = var.deploy_environment
 }
 
-resource "aws_s3_bucket" "talk_talk_s3_bucket" {
-  bucket = "talk-talk-${var.deploy_environment}"
+module "create_s3_bucket" {
+  source = "./modules/create_s3_bucket"
+
+  deploy_environment = var.deploy_environment
 }
+
+module "upload_build" {
+  source = "./modules/upload_build"
+
+  deploy_environment = var.deploy_environment
+  s3_bucket_id       = module.create_s3_bucket.s3_bucket_id
+}
+
+module "create_cloudfront" {
+  source = "./modules/create_cloudfront"
+
+  acm_certificate_arn = var.acm_certificate_arn
+  deploy_environment  = var.deploy_environment
+  s3_bucket_id        = module.create_s3_bucket.s3_bucket_id
+  region              = "us-east-2"
+}
+
+
+resource "aws_route53_record" "a_record" {
+  zone_id = module.create_subdomain.hosted_zone_id
+  name    = "ui"
+  type    = "A"
+  alias {
+    evaluate_target_health = false
+    name                   = module.create_cloudfront.cloudfront_domain_name
+    zone_id                = module.create_cloudfront.cloudfront_hosted_zone_id
+  }
+}
+
