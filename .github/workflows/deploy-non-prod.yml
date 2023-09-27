@@ -15,7 +15,7 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-region: ${{ secrets.AWS_REGION }}
+          aws-region: ${{ vars.AWS_REGION }}
           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
 
       - name: Checkout
@@ -47,7 +47,14 @@ jobs:
       - name: Terraform Plan
         working-directory: infra
         id: plan
-        run: terraform plan -out="tfplan" -var-file="${{ secrets.STAGE_NAME }}.tfvars"
+        run: >
+          terraform plan 
+          -out="tfplan" 
+          -var acm_certificate_arn=${{ secrets.AWS_CERTIFICATE_ARN }}
+          -var aws_region=${{ vars.AWS_REGION }}
+          -var aws_role_arn=${{ secrets.TERRAFORM_AWS_ROLE_TO_ASSUME }} 
+          -var deploy_environment=${{ vars.DEPLOY_ENVIRONMENT }}
+          -var domain_name=${{ vars.DOMAIN_NAME }}
 
       - name: Terraform Apply
         working-directory: infra
