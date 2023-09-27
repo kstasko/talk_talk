@@ -54,6 +54,7 @@ jobs:
           -var aws_region=${{ vars.AWS_REGION }}
           -var aws_role_arn=${{ secrets.TERRAFORM_AWS_ROLE_TO_ASSUME }} 
           -var deploy_environment=${{ vars.DEPLOY_ENVIRONMENT }}
+          -var domain_name=${{ vars.DOMAIN_NAME }}
 
       - name: Terraform Apply
         working-directory: infra
