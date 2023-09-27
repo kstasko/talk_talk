@@ -1,5 +1,0 @@
-acm_certificate_arn = "arn:aws:acm:us-east-1:467222377375:certificate/6f08ed79-cdb7-4024-9e6e-ef5abfe6b809"
-aws_region          = "us-east-2"
-aws_role_arn        = "arn:aws:iam::467222377375:role/terraform-readonly"
-deploy_environment  = "nonprod"
-domain_name         = "nonprod.talktalk.dev"

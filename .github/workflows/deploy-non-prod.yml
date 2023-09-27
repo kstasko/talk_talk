@@ -47,7 +47,13 @@ jobs:
       - name: Terraform Plan
         working-directory: infra
         id: plan
-        run: terraform plan -out="tfplan" -var-file="${{ secrets.STAGE_NAME }}.tfvars"
+        run: >
+          terraform plan 
+          -out="tfplan" 
+          -var acm_certificate_arn=${{ secrets.AWS_CERTIFICATE_ARN }}
+          -var aws_region=${{ env.AWS_REGION }}
+          -var aws_role_arn=${{ secrets.TERRAFORM_AWS_ROLE_TO_ASSUME }} 
+          -var deploy_environment=${{ secrets.STAGE_NAME }}
 
       - name: Terraform Apply
         working-directory: infra
